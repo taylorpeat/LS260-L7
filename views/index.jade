@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  main
+    ul
+      each album in albums
+        li
+          a(href="#{album.url}")
+            img(src="#{album.cover}")
+            figcaption
+              h1= album.title
+              h3= album.artist
+              h4= album.date
+              h3= album.price
+            a.button(href="#") Add to Cart
