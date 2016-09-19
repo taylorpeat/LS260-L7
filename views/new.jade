@@ -1,0 +1,13 @@
+extends layout
+
+block content  
+  form(action="/albums" method="post")
+    label Title
+      input(type="text")
+    label Artist
+      input(type="text")
+    label Date
+      input(type="date")
+    label Price
+      input(type="number")
+    input(type="submit")

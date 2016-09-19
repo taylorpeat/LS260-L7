@@ -13,4 +13,17 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/albums/new', function(req, res, next) {
+  res.render('new');
+});
+
+router.post('/albums', function(req, res) {
+  var album = req.body;
+  res.json(album);
+});
+
 module.exports = router;
+
+function createAlbum(data) {
+
+}
