@@ -37,6 +37,9 @@ li
   box-sizing: border-box
   margin: 0 auto
   
+.hidden
+  visibility: hidden
+  
 img
   width: 100%
   
@@ -62,6 +65,7 @@ h4
 label
   display: block
   margin-bottom: 10px
+  font-size: 1.2em
   
 input
   display: block
@@ -71,11 +75,15 @@ input
   height: 30px
   border: 1px solid gray
   font-size 1.15em
-  padding-left: 5px;
+  padding-left: 5px
+  margin-top: 5px
   &[type='submit']
-    width: 60%
+    width: 50%
     min-width: 100px
     margin: 0 auto
     padding: 0
     font-weight: bold
+    background: linear-gradient(to bottom, #ddd, #aaa)
+    border: 2px solid gray
+    height: 35px
   

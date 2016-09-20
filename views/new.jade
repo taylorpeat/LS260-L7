@@ -3,11 +3,13 @@ extends layout
 block content  
   form(action="/albums" method="post")
     label Title
-      input(type="text")
+      input(type="text" name="title")
     label Artist
-      input(type="text")
+      input(type="text" name="artist")
     label Date
-      input(type="date")
+      input(type="date" name="date")
+    label Cover
+      input(type="text" name="cover")
     label Price
-      input(type="number")
+      input(type="number" name="price")
     input(type="submit")
