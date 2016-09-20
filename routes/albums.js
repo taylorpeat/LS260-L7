@@ -1,7 +1,6 @@
 var path = require('path'),
     fs = require('fs'),
-    albumCollection = require('../local_modules/albums.js'),
-    _ = require('underscore');
+    albumCollection = require('../local_modules/albums.js');
 
 function addAlbumRoutes(router) {
   router.get('/albums/new', function(req, res, next) {
@@ -20,22 +19,24 @@ function addAlbumRoutes(router) {
     res.redirect('/');
   });
 
-  router.put('/albums', function(req, res) {
+  router.post('/put-albums', function(req, res) {
     var album = req.query.id,
         albums = albumCollection.get();
 
-    _(albums).findWhere({ id: album.id }) = album;
+    albums.find(function(album) {
+      return id === album.id
+    }) = album;
     albumCollection.set(albums);
     res.json(albumCollection.get());
   });
 
   router.post('/delete-albums', function(req, res) {
-    var id = +req.query.id,
+    var id = +req.body.id,
         albums = albumCollection.get();
-    console.log(id);
+    console.log(req.body);
 
     rev_albums = albums.filter(function(album) {
-      return album.id === id;
+      return album.id !== id;
     });
     albumCollection.set(rev_albums);
     res.json(rev_albums);
