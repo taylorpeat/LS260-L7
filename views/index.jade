@@ -4,16 +4,8 @@ block content
   main
     h1 Albums
     ul
-      each album in albums
-        li
-          a(href="#{album.url}")
-            img(src="#{album.cover}")
-            figcaption
-              h1= album.title
-              h3= album.artist
-              h4= album.date
-              h3 $#{album.price}
-            a.button(href="#") Add to Cart
-            form(action="delete-albums" method="post")
-              input.hidden(name="id" value="#{album.id}")
-              input(type="submit" value="Delete")
+
+block scripts
+  script.
+    App.albums = new Albums(!{JSON.stringify(albums)});
+    App.init();

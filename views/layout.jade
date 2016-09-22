@@ -5,15 +5,13 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    +script_tag("vendor/all")
+    +script_tag("handlebars_templates")
   body
     block content
-    +script_tag("vendor/all")
     +script_tag("application")
     +script_tag("models/album")
     +script_tag("collections/albums")
     +script_tag("views/albums")
     block scripts
-      script.
-        app.albums = new Albums({
-          collection: !{JSON.stringify(albums)}
-        });
+

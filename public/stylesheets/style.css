@@ -35,6 +35,10 @@ li {
   box-sizing: border-box;
   margin: 0 auto;
 }
+.button:hover {
+  background-color: #aaa;
+  color: #eee;
+}
 .hidden {
   visibility: hidden;
 }
@@ -85,4 +89,8 @@ input[type='submit'] {
   background: linear-gradient(to bottom, #ddd, #aaa);
   border: 2px solid #808080;
   height: 35px;
+}
+input[type='submit']:hover {
+  background: linear-gradient(to bottom, #aaa, #777);
+  color: #ddd;
 }
