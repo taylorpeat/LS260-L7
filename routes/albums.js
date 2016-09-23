@@ -8,6 +8,7 @@ function addAlbumRoutes(router) {
   });
 
   router.post('/albums', function(req, res) {
+    console.log(req.body);
     var album = req.body,
         albums = albumCollection.get(),
         last_id = albumCollection.getLastID();
@@ -16,11 +17,11 @@ function addAlbumRoutes(router) {
     albums.push(album);
 
     albumCollection.set(albums);
-    res.redirect('/');
+    res.sendStatus(200);
   });
 
   router.post('/put-albums', function(req, res) {
-    var album = req.query.id,
+    var album = req.body,
         albums = albumCollection.get();
 
     albums.find(function(album) {
@@ -39,7 +40,6 @@ function addAlbumRoutes(router) {
       return album.id !== id;
     });
     albumCollection.set(rev_albums);
-    res.json(rev_albums);
   });
 }
 

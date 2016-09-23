@@ -94,3 +94,6 @@ input[type='submit']:hover {
   background: linear-gradient(to bottom, #aaa, #777);
   color: #ddd;
 }
+footer a.button {
+  width: 200px;
+}
