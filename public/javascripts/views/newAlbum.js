@@ -11,14 +11,7 @@ var newAlbumView = Backbone.View.extend({
   },
   addAlbum: function(e) {
     e.preventDefault();
-
-    $.ajax({
-      method: "POST",
-      url: "/albums",
-      data: $('form').serialize(),
-      success: function() {
-        console.log("added album");
-      }
-    });
+    
+    this.trigger("add_album");
   }
 });
