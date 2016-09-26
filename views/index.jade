@@ -1,14 +1,1 @@
 extends layout
-
-block content
-  main
-    h1 Albums
-    ul
-  footer
-    a.button(id="create" href="albums/new" value="Create new Album").
-      Create new Album
-
-block scripts
-  script.
-    App.albums = new Albums(!{JSON.stringify(albums)});
-    App.init();

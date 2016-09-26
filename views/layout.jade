@@ -8,12 +8,16 @@ html
     +script_tag("vendor/all")
     +script_tag("handlebars_templates")
   body
-    block content
+    main
+      block content
+
     +script_tag("application")
     +script_tag("models/album")
     +script_tag("collections/albums")
     +script_tag("views/albums")
+    +script_tag("views/index")
+    +script_tag("views/newAlbum")
+    script.
+      App.albums = new Albums(!{JSON.stringify(albums)});
+    +script_tag("router")
     block scripts
-        script.
-            Backbone.history.start();
-

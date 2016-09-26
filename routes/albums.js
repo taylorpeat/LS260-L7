@@ -4,11 +4,12 @@ var path = require('path'),
 
 function addAlbumRoutes(router) {
   router.get('/albums/new', function(req, res, next) {
-    res.render('new');
+    res.render('new', {
+      albums: App.albums
+    });
   });
 
   router.post('/albums', function(req, res) {
-    console.log(req.body);
     var album = req.body,
         albums = albumCollection.get(),
         last_id = albumCollection.getLastID();
@@ -17,10 +18,10 @@ function addAlbumRoutes(router) {
     albums.push(album);
 
     albumCollection.set(albums);
-    res.sendStatus(200);
+    res.json(album);
   });
 
-  router.post('/put-albums', function(req, res) {
+  router.put('/albums', function(req, res) {
     var album = req.body,
         albums = albumCollection.get();
 
@@ -31,7 +32,7 @@ function addAlbumRoutes(router) {
     res.json(albumCollection.get());
   });
 
-  router.post('/delete-albums', function(req, res) {
+  router.delete('/albums', function(req, res) {
     var id = +req.body.id,
         albums = albumCollection.get();
     console.log(req.body);
@@ -40,6 +41,7 @@ function addAlbumRoutes(router) {
       return album.id !== id;
     });
     albumCollection.set(rev_albums);
+    res.sendStatus(200);
   });
 }
 

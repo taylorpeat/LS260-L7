@@ -1,11 +1,13 @@
 var App = {
+  $el: $("main"),
   templates: JST,
-  init: function() {
+  renderIndex: function() {
+    this.indexView = new IndexView();
     this.renderAlbums();
     this.bindEvents();
   },
   renderAlbums: function() {
-    this.indexView = this.albums.each(function(album) {
+    this.albums.each(function(album) {
       new AlbumView({
         model: album
       });
@@ -13,22 +15,10 @@ var App = {
   },
   bindEvents: function() {
     _.extend(this, Backbone.Events);
-    this.listenTo(this.indexView, "add_album", this.addAlbum);
-    $('#create').on("click", function(e) {
-      e.preventDefault();
-
-      
-    });
+    this.listenTo(this.indexView, "new_album", this.newAlbum);
   },
-  addAlbum: function() {
-    $.ajax({
-      method: "POST",
-      url: "/albums",
-      data: $('form').serialize(),
-      success: function() {
-        console.log("added album");
-      }
-    });
+  newAlbum: function() {
+    new NewAlbumView();
   }
 };
 

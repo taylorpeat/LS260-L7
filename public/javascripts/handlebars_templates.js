@@ -20,6 +20,10 @@ this["JST"]["album"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":fun
     + "\"><input type=\"submit\" value=\"Delete\"></form></a>";
 },"useData":true});
 
+this["JST"]["index"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<h1>Albums</h1><ul></ul><footer><a class=\"button\" id=\"create\" href=\"/albums/new\">Create new Album</a></footer>";
+},"useData":true});
+
 this["JST"]["newAlbum"] = Handlebars.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<form action=\"/albums\" method=\"post\"><label>Title<input type=\"text\" name=\"title\"></label><label>Artist<input type=\"text\" name=\"artist\"></label><label>Date<input type=\"date\" name=\"date\"></label><label>Cover<input type=\"text\" name=\"cover\"></label><label>Price<input type=\"number\" name=\"price\"></label><input type=\"submit\"></form>";
 },"useData":true});

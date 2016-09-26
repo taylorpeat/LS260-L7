@@ -1,17 +1,25 @@
-var newAlbumView = Backbone.View.extend({
+var NewAlbumView = Backbone.View.extend({
   template: App.templates.newAlbum,
   initialize: function() {
     this.render();
   },
   render: function() {
-    $("body").html(this.$el.html(this.template()));
+    this.$el.html(this.template());
+    App.$el.html(this.$el);
   },
   events: {
     "submit form": "addAlbum"
   },
   addAlbum: function(e) {
     e.preventDefault();
-    
-    this.trigger("add_album");
+
+    $.ajax({
+      method: "POST",
+      url: "/albums",
+      data: $('form').serialize(),
+      success: function(json) {
+        App.albums.add(json);
+      }
+    });
   }
 });
