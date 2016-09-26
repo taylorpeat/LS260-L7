@@ -19,6 +19,9 @@ var NewAlbumView = Backbone.View.extend({
       data: $('form').serialize(),
       success: function(json) {
         App.albums.add(json);
+        history.back({
+          albums: App.albums
+        });
       }
     });
   }
