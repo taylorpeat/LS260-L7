@@ -1,8 +1,10 @@
 var IndexView = Backbone.View.extend({
+  id: "index",
   template: App.templates.index,
   events: {
     "click footer a": "newAlbum",
-    "click form input": "deleteAlbum"
+    "click form input": "deleteAlbum",
+    "click a.add-cart": "addCart"
   },
   newAlbum: function(e) {
     e.preventDefault();
@@ -27,6 +29,11 @@ var IndexView = Backbone.View.extend({
       success: function() {
         App.renderIndex();
       }
-    })
+    });
+  },
+  addCart: function(e) {
+    e.preventDefault();
+
+    this.trigger("add_to_cart", { id: +$(e.target).parent("a").attr("data-id") });
   }
 });

@@ -5,26 +5,76 @@ body
   padding: 50px
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
 
+header
+  position: relative
+header,
 main
   width: 80%
   min-width: 800px
   margin: 0 auto
 
-a
-  color: colors.font
-  text-decoration: none
+#index
+  a
+    color: colors.font
+    text-decoration: none
+  ul
+    list-style: none
+    text-align: center 
+  li
+    display: inline-block
+    width: 25%
+    vertical-align: top
+    padding: 10px
+    padding-bottom: 50px
+    box-sizing: border-box
+  img
+    width: 100% 
+  figcaption
+    text-align: left
+    padding-bottom: 15px
+  h1
+    font-size: 1.5em
+    padding-bottom: 8px
+  h2
+    font-size: 1.2em
+  h4
+    font-size: .8em
+  h2
+  h3
+  h4
+    padding-bottom: 5px
+  footer a.button
+    width: 200px
 
-ul
-  list-style: none
-  text-align: center
+#cart
+  line-height: 30px
+  label
+    float: right
+  #items
+    color: #fff
+    visibility: hidden
+    background-color: green
+    padding: 5px 10px
+    position: absolute
+    top: 30px
+    right: 0
+    z-index: 2
+  input:checked + #items
+    visibility: visible
+  span
+    float: right
+    padding-left: 20px
+  li:before
+    content: "✖"
+    margin-right: 4px
+    font-size: 16px
+    color: #b22
+  h2
+    float: right
+    font-size: 16px
   
-li
-  display: inline-block
-  width: 25%
-  vertical-align: top
-  padding: 10px
-  padding-bottom: 50px
-  box-sizing: border-box
+  
+  
 
 .button
   background-color: colors.button_bg
@@ -35,41 +85,18 @@ li
   display: block
   text-align: center
   box-sizing: border-box
-  margin: 0 auto
+  margin: 0 auto 10px auto
 .button:hover
   background-color: #aaa
   color: #eee
-  
 .hidden
-  visibility: hidden
-  
-img
-  width: 100%
-  
-figcaption
-  text-align: left
-  padding-bottom: 15px
-  
-h1
-  font-size: 1.5em
-  padding-bottom: 8px
-  
-h2
-  font-size: 1.2em
+  display: none
 
-h4
-  font-size: .8em
-  
-h2
-h3
-h4
-  padding-bottom: 5px
 
 label
   display: block
   margin-bottom: 10px
   font-size: 1.2em
-  
 input
   display: block
   width: 100%
@@ -92,7 +119,3 @@ input
     &:hover
       background: linear-gradient(to bottom, #aaa, #777)
       color: #ddd
-      
-footer a.button
-  width: 200px
-  

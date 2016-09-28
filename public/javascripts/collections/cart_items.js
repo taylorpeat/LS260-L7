@@ -1,0 +1,1 @@
+var cartItems = Backbone.Collection.extend();

@@ -3,26 +3,88 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+header {
+  position: relative;
+}
+header,
 main {
   width: 80%;
   min-width: 800px;
   margin: 0 auto;
 }
-a {
+#index a {
   color: #00b7ff;
   text-decoration: none;
 }
-ul {
+#index ul {
   list-style: none;
   text-align: center;
 }
-li {
+#index li {
   display: inline-block;
   width: 25%;
   vertical-align: top;
   padding: 10px;
   padding-bottom: 50px;
   box-sizing: border-box;
+}
+#index img {
+  width: 100%;
+}
+#index figcaption {
+  text-align: left;
+  padding-bottom: 15px;
+}
+#index h1 {
+  font-size: 1.5em;
+  padding-bottom: 8px;
+}
+#index h2 {
+  font-size: 1.2em;
+}
+#index h4 {
+  font-size: 0.8em;
+}
+#index h2,
+#index h3,
+#index h4 {
+  padding-bottom: 5px;
+}
+#index footer a.button {
+  width: 200px;
+}
+#cart {
+  line-height: 30px;
+}
+#cart label {
+  float: right;
+}
+#cart #items {
+  color: #fff;
+  visibility: hidden;
+  background-color: #008000;
+  padding: 5px 10px;
+  position: absolute;
+  top: 30px;
+  right: 0;
+  z-index: 2;
+}
+#cart input:checked + #items {
+  visibility: visible;
+}
+#cart span {
+  float: right;
+  padding-left: 20px;
+}
+#cart li:before {
+  content: "✖";
+  margin-right: 4px;
+  font-size: 16px;
+  color: #b22;
+}
+#cart h2 {
+  float: right;
+  font-size: 16px;
 }
 .button {
   background-color: #ddd;
@@ -33,36 +95,14 @@ li {
   display: block;
   text-align: center;
   box-sizing: border-box;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
 }
 .button:hover {
   background-color: #aaa;
   color: #eee;
 }
 .hidden {
-  visibility: hidden;
-}
-img {
-  width: 100%;
-}
-figcaption {
-  text-align: left;
-  padding-bottom: 15px;
-}
-h1 {
-  font-size: 1.5em;
-  padding-bottom: 8px;
-}
-h2 {
-  font-size: 1.2em;
-}
-h4 {
-  font-size: 0.8em;
-}
-h2,
-h3,
-h4 {
-  padding-bottom: 5px;
+  display: none;
 }
 label {
   display: block;
@@ -93,7 +133,4 @@ input[type='submit'] {
 input[type='submit']:hover {
   background: linear-gradient(to bottom, #aaa, #777);
   color: #ddd;
-}
-footer a.button {
-  width: 200px;
 }

@@ -16,12 +16,17 @@ var App = {
   bindEvents: function() {
     _.extend(this, Backbone.Events);
     this.listenTo(this.indexView, "new_album", this.newAlbum);
+    this.listenTo(this.indexView, "add_to_cart", this.addCart);
   },
   newAlbum: function() {
     new NewAlbumView();
+  },
+  addCart: function(args) {
+    this.cart.addItem(args.id);
   }
 };
 
 Handlebars.registerHelper("format_price", function(price) {
   return (+price).toFixed(2);
 });
+

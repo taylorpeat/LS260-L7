@@ -1,4 +1,4 @@
-<a href="{{url}}">
+<a href="{{url}}" data-id="{{id}}">
   <img src="{{cover}}">
   <figcaption>
     <h1>{{title}}</h1>
@@ -6,7 +6,7 @@
     <h4>{{date}}</h4>
     <h3>${{format_price price}}</h3>
   </figcaption>
-  <a class="button" href="#">Add to Cart</a>
+  <a class="button add-cart" href="#">Add to Cart</a>
   <form action="albums" method="post">
     <input class="hidden" name="id" value="{{id}}">
     <input type="submit" value="Delete">

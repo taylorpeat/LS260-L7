@@ -1,4 +1,5 @@
 var NewAlbumView = Backbone.View.extend({
+  id: "new_album",
   template: App.templates.newAlbum,
   initialize: function() {
     this.render();

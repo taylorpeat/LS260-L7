@@ -8,12 +8,15 @@ html
     +script_tag("vendor/all")
     +script_tag("handlebars_templates")
   body
+    header
+      div(id="cart")
     main
       block content
 
     +script_tag("application")
     +script_tag("models/album")
     +script_tag("collections/albums")
+    +script_tag("collections/cart_items")
     +script_tag("views/albums")
     +script_tag("views/index")
     +script_tag("views/newAlbum")
