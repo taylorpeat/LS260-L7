@@ -22,7 +22,7 @@ var App = {
     new NewAlbumView();
   },
   addCart: function(args) {
-    this.cart.addItem(args.id);
+    this.cart.addItem(args.album);
   }
 };
 

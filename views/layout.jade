@@ -22,5 +22,6 @@ html
     +script_tag("views/newAlbum")
     script.
       App.albums = new Albums(!{JSON.stringify(albums)});
+      App.cart = new CartItems();
     +script_tag("router")
     block scripts
