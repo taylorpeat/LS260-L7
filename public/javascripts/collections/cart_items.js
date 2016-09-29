@@ -1,14 +1,15 @@
 var CartItems = Backbone.Collection.extend({
   addItem: function(album) {
     if (this.existingID(album)) {
-      _(this.models).findWhere({ id: album.id }).quantity++
+      var current_album = this.get(album.id);
+      current_album.set("quantity", current_album.get("quantity") + 1);
     } else {
       var item = album.clone();
       item.set("quantity", 1);
       this.add(item);
     }
-    // this.updateQuantity();
-    // this.updateTotal();
+    this.setQuantity();
+    this.setTotal();
     this.trigger("cart_updated");
   },
   existingID: function(model) {
@@ -16,14 +17,20 @@ var CartItems = Backbone.Collection.extend({
       return mod.id === model.id;
     });
   },
-  quantity: function() {
-    return this.models.reduce(function(total, item) {
-      return (total || 0) + item.quantity;
-    });
+  setQuantity: function() {
+    this.quantity = this.toJSON().reduce(function(total, item) {
+      return total + item.quantity;
+    }, 0);
   },
-  total: function() {
-    return this.models.reduce(function(total, item) {
-      return (total || 0) + item.quantity * item.price;
-    });
-  }
+  setTotal: function() {
+    this.total = this.toJSON().reduce(function(total, item) {
+      return total + item.quantity * item.price;
+    }, 0);
+  },
+  getQuantity: function() {
+    return this.quantity;
+  },
+  getTotal: function() {
+    return this.total;
+  },
 });

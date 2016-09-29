@@ -33,8 +33,8 @@ var IndexView = Backbone.View.extend({
   },
   addCart: function(e) {
     e.preventDefault();
-    var id = +$(e.target).parent("a").attr("data-id"),
-        album = _(App.albums).findWhere({ id: id });
+    var id = +$(e.target).siblings("a").attr("data-id"),
+        album = App.albums.get(id);
 
     this.trigger("add_to_cart", { album: album });
   }

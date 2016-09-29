@@ -1,16 +1,15 @@
 var CartView = Backbone.View.extend({
   id: "cart",
   template: App.templates.cart,
-  initialize: function(options) {
-    this.collection = options.collection;
-
+  initialize: function() {
+    this.render();
     this.listenTo(this.collection, "cart_updated", this.render);
   },
   render: function() {
     this.$el.html(this.template({
       items: this.collection.toJSON(),
-      total: this.collection.total(),
-      quantity: this.collection.quantity()
+      total: this.collection.getTotal(),
+      quantity: this.collection.getQuantity()
     }));
     $("#cart").replaceWith(this.$el);
   },
@@ -20,8 +19,8 @@ var CartView = Backbone.View.extend({
   deleteItem: function(e) {
     e.preventDefault();
     
-    var id = $(e.target).parent("li").attr("data-id");
+    var id = +$(e.target).parent("li").attr("data-id");
 
-    _(this.collection).findWhere({ id: id }).destroy();
+    _(this.collection.toJSON()).findWhere({ id: id }).destroy();
   }
 });
