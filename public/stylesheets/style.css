@@ -76,8 +76,7 @@ main {
   float: right;
   padding-left: 20px;
 }
-#cart li:before {
-  content: "✖";
+#cart li a {
   margin-right: 4px;
   font-size: 16px;
   color: #b22;

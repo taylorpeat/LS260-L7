@@ -4,6 +4,7 @@ var App = {
   renderIndex: function() {
     this.indexView = new IndexView();
     this.renderAlbums();
+    new CartView({ collection: this.albums });
     this.bindEvents();
   },
   renderAlbums: function() {

@@ -1,14 +1,16 @@
-<label for="cart_toggle">{{total_items}} items</label>
+<label for="cart_toggle">{{quantity}} items</label>
 <input class="hidden" type="checkbox" id="cart_toggle">
-{{#if items_present items}}
+{{#if items_present quantity}}
   <div id=items>
     <ul>
       {{#each items}}
-        <li data-id="{{id}}">{{name}} x {{quantity}}
-          <span>${{unit_price}}</span>
+        <li data-id="{{id}}">
+          <a href="#">&#x2715;</a>
+          {{name}} x {{quantity}}
+          <span>${{price}}</span>
         </li>
       {{/each}}
     </ul>
-    <h2>${{total_value}}</h2>
+    <h2>${{total}}</h2>
   </div>
 {{/if}}
