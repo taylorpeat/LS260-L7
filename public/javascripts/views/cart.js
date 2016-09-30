@@ -21,6 +21,7 @@ var CartView = Backbone.View.extend({
     
     var id = +$(e.target).parent("li").attr("data-id");
 
-    _(this.collection.toJSON()).findWhere({ id: id }).destroy();
+    this.collection.trigger("destroy", { id: id });
+    this.render();
   }
 });

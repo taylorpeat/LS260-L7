@@ -33,4 +33,12 @@ var CartItems = Backbone.Collection.extend({
   getTotal: function() {
     return this.total;
   },
+  destroy: function(args) {
+    this.remove(args.id);
+    this.setQuantity();
+    this.setTotal();
+  },
+  initialize: function() {
+    this.on("destroy", this.destroy);
+  }
 });
