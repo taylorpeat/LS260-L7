@@ -24,10 +24,9 @@ var IndexView = Backbone.View.extend({
     
     $.ajax({
       method: "DELETE",
-      url: "/albums",
-      data: id,
-      success: function() {
-        App.renderIndex();
+      url: "/albums?" + $.param({ "id": id }),
+      success: function(json) {
+        App.resetAlbums(json);
       }
     });
   },

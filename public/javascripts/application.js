@@ -23,6 +23,11 @@ var App = {
   newAlbum: function() {
     new NewAlbumView();
   },
+  resetAlbums: function(json) {
+    this.$el.find("ul").empty();
+    this.albums.reset(json);
+    this.renderAlbums();
+  },
   addCart: function(args) {
     this.cart.addItem(args.album);
   }

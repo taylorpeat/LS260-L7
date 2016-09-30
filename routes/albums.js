@@ -33,15 +33,14 @@ function addAlbumRoutes(router) {
   });
 
   router.delete('/albums', function(req, res) {
-    var id = +req.body.id,
+    var id = +req.query.id,
         albums = albumCollection.get();
-    console.log(req.body);
 
     rev_albums = albums.filter(function(album) {
       return album.id !== id;
     });
     albumCollection.set(rev_albums);
-    res.sendStatus(200);
+    res.json(albumCollection.get());
   });
 }
 
