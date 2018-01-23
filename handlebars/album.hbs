@@ -1,9 +1,27 @@
 <a href="{{url}}" data-id="{{id}}">
   <img src="{{cover}}">
   <figcaption>
-    <h1>{{title}}</h1>
-    <h3>{{artist}}</h3>
-    <h4>{{date}}</h4>
+    <h1>
+      {{#if title}}
+        {{title}}
+      {{else}}
+        No Title
+      {{/if}}
+    </h1>
+    <h3>
+      {{#if artist}}
+        {{artist}}
+      {{else}}
+        No Artist
+      {{/if}}
+    </h3>
+    <h4>
+      {{#if date}}
+        {{date}}
+      {{else}}
+        Date Unknown
+      {{/if}}
+    </h4>
     <h3>${{format_price price}}</h3>
   </figcaption>
   <a class="button add-cart" href="#">Add to Cart</a>

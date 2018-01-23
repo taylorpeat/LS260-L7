@@ -7,6 +7,9 @@ body
 
 header
   position: relative
+  > h1
+    font-size: 40px
+    text-align: center
 header,
 main
   width: 80%
@@ -35,6 +38,11 @@ main
   h1
     font-size: 1.5em
     padding-bottom: 8px
+  > h1
+    font-size: 2.5em
+    font-weight: bold
+    border-bottom: 2px solid #000;
+    margin-bottom: 15px
   h2
     font-size: 1.2em
   h4
@@ -49,7 +57,18 @@ main
 #cart
   line-height: 30px
   label
+    position: relative
+    top: 6px
     float: right
+    border: 2px solid #000
+    border-radius: 3px
+    padding: 0 4px
+    cursor: not-allowed
+  label[for="cart_toggle"]
+    cursor: pointer
+    &:hover
+      background-color: #000
+      color: #fff
   #items
     color: #fff
     visibility: hidden

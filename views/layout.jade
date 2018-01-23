@@ -3,12 +3,13 @@ include partials/_mixins.jade
 doctype html
 html
   head
-    title= title
+    title= "Basic Music Store"
     link(rel='stylesheet', href='/stylesheets/style.css')
     +script_tag("vendor/all")
     +script_tag("handlebars_templates")
   body
     header
+      <h1>Really Basic Music Store</h1>
       div(id="cart")
     main
       block content
