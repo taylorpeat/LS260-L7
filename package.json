@@ -1,9 +1,9 @@
 {
-  "name": "music-store",
+  "name": "music_store",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon ./bin/www",
     "postinstall": "bash ./post_install.sh"
   },
   "dependencies": {
@@ -23,8 +23,5 @@
     "grunt-bower-concat": "^1.0.0",
     "grunt-contrib-handlebars": "^1.0.0",
     "grunt-contrib-uglify": "^2.0.0"
-  },
-  "engines": {
-    "node": "5.0.0"
   }
 }
