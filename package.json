@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "postinstall": "bash ./post_install.sh"
+    "postinstall": "bash ./post_install.sh",
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
