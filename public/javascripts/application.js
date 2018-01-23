@@ -2,7 +2,6 @@ var App = {
   $el: $("main"),
   templates: JST,
   renderIndex: function() {
-    this.preventBrokenImages();
     this.indexView = new IndexView();
     this.renderAlbums();
     this.cart = new CartItems();
@@ -31,13 +30,6 @@ var App = {
   },
   addCart: function(args) {
     this.cart.addItem(args.album);
-  },
-  preventBrokenImages: function(e) {
-    document.addEventListener("DOMContentLoaded", function(event) {
-      document.querySelectorAll('img').forEach(function(img){
-        img.onerror = function(){ $(this).attr("src", "http://placehold.it/300x300/&text=You're Lazy"); };
-      });
-    });
   }
 };
 
